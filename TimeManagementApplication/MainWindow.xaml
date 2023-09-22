@@ -1,0 +1,102 @@
+﻿<Window x:Class="TimeManagementApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Time Management Application" Height="600" Width="800">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+
+        <!-- Module Information Section -->
+        <GroupBox Header="Module Information" Grid.Row="0">
+            <StackPanel Margin="10">
+                <!-- Add Module Controls (Code, Name, Credits, Hours) -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Code:" Width="100" VerticalAlignment="Center" />
+                    <TextBox x:Name="CodeTextBox" Width="200" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Name:" Width="100" VerticalAlignment="Center" />
+                    <TextBox x:Name="NameTextBox" Width="200" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Credits:" Width="100" VerticalAlignment="Center" />
+                    <TextBox x:Name="CreditsTextBox" Width="50" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Class Hours/Week:" Width="100" VerticalAlignment="Center" />
+                    <TextBox x:Name="ClassHoursTextBox" Width="50" />
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Semester Information Section -->
+        <GroupBox Header="Semester Information" Grid.Row="1">
+            <StackPanel Margin="10">
+                <!-- Number of Weeks -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Number of Weeks:" Width="150" VerticalAlignment="Center" />
+                    <TextBox x:Name="WeeksTextBox" Width="50" />
+                </StackPanel>
+
+                <!-- Start Date -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Start Date:" Width="150" VerticalAlignment="Center" />
+                    <DatePicker x:Name="StartDateDatePicker" Width="150" />
+                </StackPanel>
+            </StackPanel>
+
+
+
+        </GroupBox>
+
+
+        <!-- Module List Section -->
+
+        <ListView Name="ModuleListView" Margin="0,0,20,0" VerticalAlignment="Center" Grid.Row="2" Height="114">
+            \
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Code" Width="120" DisplayMemberBinding="{Binding Code}" />
+                    <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Credits" Width="80" DisplayMemberBinding="{Binding Credits}" />
+                    <GridViewColumn Header="Class Hours/Week" Width="120" DisplayMemberBinding="{Binding ClassHoursPerWeek}" />
+                    <GridViewColumn Header="Self-Study Hours/Week" Width="160" DisplayMemberBinding="{Binding SelfStudyHoursPerWeek}" />
+                    <GridViewColumn Header="Remaining Hours" Width="160" DisplayMemberBinding="{Binding RemainingHours}" />
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+
+
+        <Button Content="Submit" Margin="417,69,227,6" Grid.Row="1" Click="Button_Click" />
+
+        <!-- Record Hours Section -->
+        <GroupBox Header="Record Hours" Grid.Row="3">
+            <StackPanel Margin="10">
+                <!-- Select Date -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Select Date:" Width="150" VerticalAlignment="Center" />
+                    <DatePicker x:Name="RecordDateDatePicker" Width="150" />
+                </StackPanel>
+
+                <!-- Enter Hours Worked -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Hours Worked:" Width="150" VerticalAlignment="Center" />
+                    <TextBox x:Name="HoursWorkedTextBox" Width="50" />
+                </StackPanel>
+
+                <!-- Submit Button -->
+                <Button Content="Submit Hours" Click="SubmitHoursButton_Click" />
+            </StackPanel>
+        </GroupBox>
+
+
+
+    </Grid>
+</Window>
