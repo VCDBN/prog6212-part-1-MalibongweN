@@ -23,7 +23,7 @@ Specify the number of weeks in the semester and the start date for the first wee
 The application calculates and displays the number of hours of self-study required for each module per week using the formula:
 
 ```
-self-study hours per week = (number of credits × 10) / (number of weeks − class hours per week)
+self-study hours per week = (number of credits × 10) /number of weeks − class hours per week
 ```
 
 ### 4. Recording Study Hours
